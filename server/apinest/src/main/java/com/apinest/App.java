@@ -1,13 +1,11 @@
 package com.apinest;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+import io.javalin.Javalin;
+
+public class App {
+  public static void main(String[] args) {
+    var app = Javalin.create(config -> {
+      config.routes.get("/", ctx -> ctx.result());
+    }).start(7070);
+  }
 }
